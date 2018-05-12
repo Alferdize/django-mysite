@@ -1,0 +1,21 @@
+<html>
+<head>
+{% load static %}
+
+<link rel="stylesheet" type="text/css"  href="{% static 'polls/style.css' %}">
+<title>
+Hello
+</title>
+</head>
+<body>
+{% if latest_question_list %}
+<ul style="list-style:None">
+{% for question in latest_question_list %}
+<li><a href="/index/{{ question.id }}/">{{ question.question_text }}</a></li>
+<li><a href="/index/detail_que/{{ question.id }}/">more about {{ question.question_text }}</a></li>
+{% endfor %}
+</ul>
+{% else %}
+ <p>No polls are available.</p> 
+ {% endif %}
+ {% block branding %} <h1 id="site-name"><a href="{% url 'admin:index' %}">Polls Administration</a></h1> {% endblock %}

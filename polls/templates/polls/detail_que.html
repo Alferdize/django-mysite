@@ -1,0 +1,9 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css"  href="{% static 'polls/style.css' %}">
+
+{%  if question %}
+<h1>{{ question.question_text }}</h1>
+<h1>{{ question.pub_date }}</h1>
+<a href="{% url 'polls:index'%}">BACK</li>
+{% endif %}
